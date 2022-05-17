@@ -21,9 +21,9 @@ const App = () => {
 		setEdit(true)
 		setCurrentUser({id:to.id, title:to.title })
 	}
-	const updateTodo = (id, updateTodo) =>{
+	const updateTodo = (value) =>{
 		setEdit(false)
-		setTodos(todos.map(todo => todo.id === id ? updateTodo : todo))
+		setTodos(todos.map(item => item.id === value.id ? value : item))
 	}
 
     return (
@@ -31,7 +31,7 @@ const App = () => {
         <h2>Todo Long</h2>
 		<div className="container">		
 			{edit ?
-				(<Edit currentUser={currentUser} updateTodo={updateTodo}/>)	
+				(<Edit currentUser={currentUser} updateTodo={value => updateTodo(value)} />)	
 			: 
 				(<Add setTodos={setTodos} todos={todos}/>)
 			}

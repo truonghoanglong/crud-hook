@@ -5,19 +5,14 @@ const Edit = ({currentUser,updateTodo}) => {
   
   const handleSubmit = (e) => {
     e.preventDefault()
-    let newUpda = {
-      id:update.id +1,
-      todo:update.title
-    }
-    setUpdate([...update,newUpda])
-    updateTodo(update.id, update)  
+    updateTodo(update);
   }
   return (
-    <form onSubmit={e=>handleSubmit(e)}>
+    <form onSubmit={(e)=>handleSubmit(e)}>
       <h2>Edit</h2>
       <input type="text"
         value={update.title}
-        onChange={(e)=>setUpdate(e.target.value)}
+        onChange={(e)=>setUpdate({...update,title:e.target.value})}
       />
       <br />
       <button>Update</button>
