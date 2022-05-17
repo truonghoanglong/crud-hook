@@ -5,6 +5,11 @@ const Edit = ({currentUser,updateTodo}) => {
   
   const handleSubmit = (e) => {
     e.preventDefault()
+    let newUpda = {
+      id:update.id +1,
+      todo:update.title
+    }
+    setUpdate([...update,newUpda])
     updateTodo(update.id, update)  
   }
   return (
